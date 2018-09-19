@@ -12,6 +12,7 @@ class Match:
         self.guest_chance = int(guest_chance) / 100
         self.prediction = prediction
         self.odds = float(odds)
+        
     def is_worth(self):
         try:
             chance_in_bookmaker_eyes = 1 / self.odds
@@ -23,7 +24,6 @@ class Match:
             predicted_chance = self.draw_chance
         else:
             predicted_chance = self.guest_chance
-
         self.chance = predicted_chance
         if predicted_chance > chance_in_bookmaker_eyes:
             self.greatness = predicted_chance - chance_in_bookmaker_eyes
@@ -31,6 +31,7 @@ class Match:
         else:
             return False
 
+        
 rows = []
 for i in range(0, 10):
     if i == 0:
